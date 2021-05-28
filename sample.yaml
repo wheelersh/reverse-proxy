@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+    api:
+        build: .
+        restart: always
+        container_name: "name-me"
+        environment:
+            VIRTUAL_HOST: "www.something.whatever"
+            VIRTUAL_PORT: 80
+            LETSENCRYPT_HOST: "www.something.whatever"      
+        networks: ["proxynet"]
+networks:
+    proxynet:
+        external: true
